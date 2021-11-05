@@ -25,7 +25,7 @@ const postInfoDatabase = [
         "imgProfile" : "https://unsplash.it/300/300?image=15",
         "date" : "4 mesi fa",
         "textPost" : "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "image" : "",
+        "image" : "https://unsplash.it/600/300?image=171",
         "likesNumber" : 80
     },
     {
@@ -33,11 +33,11 @@ const postInfoDatabase = [
         "imgProfile" : "https://unsplash.it/300/300?image=15",
         "date" : "1 mesi fa",
         "textPost" : "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-        "image" : "",
+        "image" : "https://unsplash.it/600/300?image=171",
         "likesNumber" : 10
     },
     {
-        "nameAuthor" : "salvatore ",
+        "nameAuthor" : "Simone Icardi ",
         "imgProfile" : "https://unsplash.it/300/300?image=15",
         "date" : "5 mesi fa",
         "textPost" : "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
@@ -46,11 +46,46 @@ const postInfoDatabase = [
     }
 ];
 
-
-
-
+console.log(postInfoDatabase);
+const contPost = document.querySelector("#container");
+for (let i = 0; i < postInfoDatabase.length; i++){
+    let {nameAuthor, imgProfile, date, textPost, image, likesNumber} = postInfoDatabase[i];
+    console.log(postInfoDatabase[i]);
+    createPost(nameAuthor, imgProfile, date, textPost, image, likesNumber);
+}
 
 // funzioni utili
-function createPost(params) {
-    
+function createPost(nameAuthor, imgProfile, date, textPost, image, likesNumber) {
+    contPost.innerHTML += `
+    <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${imgProfile}" alt="${nameAuthor}">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${nameAuthor}</div>
+                        <div class="post-meta__time">${date}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${textPost}</div>
+            <div class="post__image">
+                <img src="${image}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace </span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${likesNumber}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>
+    `
 }
