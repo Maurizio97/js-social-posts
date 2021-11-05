@@ -17,7 +17,10 @@
     // utilizzo la funzione sostituendo gli argomenti con i valori degli oggetti
         // se la chiave ha "image" : "" stampo il post senza img
 
-
+// parte 2 
+// creo un ascoltatore per il click
+    // al click il bottone cambia colore 
+    // aumento di uno il numero di mi piace
 
 const postInfoDatabase = [
     {
@@ -48,14 +51,21 @@ const postInfoDatabase = [
 
 console.log(postInfoDatabase);
 const contPost = document.querySelector("#container");
+
 for (let i = 0; i < postInfoDatabase.length; i++){
     let {nameAuthor, imgProfile, date, textPost, image, likesNumber} = postInfoDatabase[i];
-    console.log(postInfoDatabase[i]);
+    /* const idDynamic = `like-counter-${i}`; */
+    /* console.log(idDynamic); */
     createPost(nameAuthor, imgProfile, date, textPost, image, likesNumber);
 }
 
+
+
+
+
 // funzioni utili
 function createPost(nameAuthor, imgProfile, date, textPost, image, likesNumber) {
+    
     contPost.innerHTML += `
     <div class="post">
             <div class="post__header">
@@ -76,7 +86,7 @@ function createPost(nameAuthor, imgProfile, date, textPost, image, likesNumber) 
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                        <a class="like-button js-like-button" href="#" data-postid="1">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace </span>
                         </a>
@@ -87,5 +97,28 @@ function createPost(nameAuthor, imgProfile, date, textPost, image, likesNumber) 
                 </div> 
             </div>            
         </div>
-    `
+    `;
+    
+    const btn = document.querySelectorAll(".like-button");
+    console.log(btn);
+    for (let i = 0; i < btn.length; i++){
+        btn[i].addEventListener ("click",
+        function () {
+            if( this.classList == `like-button js-like-button like-button--liked active`){
+                this.classList.remove("like-button--liked");
+                this.classList.remove("active");
+                let likesCounter = document.getElementsByClassName("js-likes-counter");
+                likesCounter[i].innerHTML = postInfoDatabase[i].likesNumber;
+            }else {
+                this.classList.add("like-button--liked");
+                this.classList.add("active");
+                let likesCounter = document.getElementsByClassName("js-likes-counter");
+                likesCounter[i].innerHTML = postInfoDatabase[i].likesNumber + 1;
+            }
+
+            
+        }
+        )
+    }
+
 }
