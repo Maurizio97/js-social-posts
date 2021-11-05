@@ -9,3 +9,48 @@
 // numero di likes.
 // - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo i post del nostro feed.
 // - Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
+
+
+// creo un array di oggetti
+// creo una funzione che mi permetta di stampare i post in pagina
+// ricavo le proprietà di ogni oggetto 
+    // utilizzo la funzione sostituendo gli argomenti con i valori degli oggetti
+        // se la chiave ha "image" : "" stampo il post senza img
+
+
+
+const postInfoDatabase = [
+    {
+        "nameAuthor" : "Maurizio Proietto",
+        "imgProfile" : "https://unsplash.it/300/300?image=15",
+        "date" : "4 mesi fa",
+        "textPost" : "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "image" : "",
+        "likesNumber" : 80
+    },
+    {
+        "nameAuthor" : "Michele manco",
+        "imgProfile" : "https://unsplash.it/300/300?image=15",
+        "date" : "1 mesi fa",
+        "textPost" : "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "image" : "",
+        "likesNumber" : 10
+    },
+    {
+        "nameAuthor" : "salvatore ",
+        "imgProfile" : "https://unsplash.it/300/300?image=15",
+        "date" : "5 mesi fa",
+        "textPost" : "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "image" : "",
+        "likesNumber" : 1000
+    }
+];
+
+
+
+
+
+// funzioni utili
+function createPost(params) {
+    
+}
